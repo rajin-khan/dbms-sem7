@@ -1,0 +1,76 @@
+-- NOTES ON DBMS --
+
+data for specific columns(attributes) of a table have to be of specific types.
+
+
+project deets:
+
+should have:
+a database
+an authentication method (login/signup)
+a simple website with CRUD operations
+
+will have:
+project proposal (also stating what languages and frameworks are to be used)
+and project demonstration
+
+
+
+basic SQL queries:
+
+
+CREATE TABLE *name_of_table*
+creates a database/table
+
+so a basic create statement would be:
+
+"CREATE TABLE students (
+
+    s_id int,
+    name varchar(50),
+    cgpa float
+);"
+
+so you can see that the variable name is declared first, and THEN the data type.
+
+
+SELECT
+selects data from the table
+
+so a typical select statement would be:
+
+"SELECT * FROM *table_name*;"
+here, after SELECT, the asterisk means everything is selected
+
+another example would be, to just show the "names" attribute:
+"SELECT name FROM *table_name*;"
+
+
+INSERT
+inserting data into the table
+
+so a basic insert statement would be:
+
+"INSERT INTO *table_name*
+VALUES (int (bc id was declared first), "string"(bc string was declared after), float (bc float was entered after)), (*and repeat format here for new values);"
+
+ORDER OF VALUES MUST BE THE SAME AS THE WAY IT WAS DECLARED IN THE CREATE CLAUSE
+
+
+
+SYNTAX:
+
+for the keywords, caps are the standard, but instructor does prefer lowercase.
+every statement must also end with a semicolon.
+
+
+DATA TYPES IN SQL:
+
+int -> int
+string -> varchar(*length of string*)
+float -> float/double
+
+refer to: https://www.w3schools.com/sql/sql_ref_keywords.asp
+for more info.
+
+now you can finally start looking up sql commands and shit.
