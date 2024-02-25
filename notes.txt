@@ -1,5 +1,9 @@
 -- NOTES ON DBMS --
 
+
+- DAY 1 -
+
+
 data for specific columns(attributes) of a table have to be of specific types.
 
 
@@ -75,7 +79,14 @@ for more info.
 
 now you can finally start looking up sql commands and stuff.
 
+
+
+- DAY 2 - 
+
+
 to be specific, coding interviews consist mostly of:
 
  coding (35%), databases (35%), and OOP (30%)
- so databases are def important
+ so databases are def important.
+
+ 
