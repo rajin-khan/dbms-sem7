@@ -89,4 +89,56 @@ to be specific, coding interviews consist mostly of:
  coding (35%), databases (35%), and OOP (30%)
  so databases are def important.
 
- 
+
+
+DISTINCT:
+shows unique values in a specific column.
+
+SYNTAX:
+SELECT DISTINCT col_1
+FROM ...
+
+
+
+AS (alias):
+shows a specific column as a different column name.
+
+SYNTAX:
+SELECT col_1 AS new_col_name
+FROM...
+
+so, this might be useful, in say, showing the name as "Name". Keep in mind, that quotes are not needed when displaying an alias. however, if the column name
+includes a space, then double quotes must be used.
+
+
+
+
+CONCAT:
+joins a string with the data on the database to view it nicely.
+
+SYNTAX:
+SELECT CONCAT(col_1, " string ", col_2)
+FROM ...
+
+
+
+a combination of all of these may be:
+
+SELECT CONCAT(name, " belongs to the ", department, " and his/her CGPA is: ", cgpa)
+AS "Student Info"
+FROM students;
+
+
+
+
+WHERE:
+shows instances (rows) based on specific conditions. comes after the FROM clause.
+
+SYNTAX:
+SELECT *
+FROM table_name
+WHERE *condition*;
+
+when trying to match a string in the condition, the comparison must also be with a string in double quotes.
+LOGICAL OPERATORS may also be used here (AND/and/&&, OR/or/|, NOT/not/!, and combined conditions too), 
+and also COMPARISON OPERATORS (>, <, =, >=, <=, <>, etc.)
