@@ -73,4 +73,9 @@ float -> float/double
 refer to: https://www.w3schools.com/sql/sql_ref_keywords.asp
 for more info.
 
-now you can finally start looking up sql commands and shit.
+now you can finally start looking up sql commands and stuff.
+
+to be specific, coding interviews consist mostly of:
+
+ coding (35%), databases (35%), and OOP (30%)
+ so databases are def important
