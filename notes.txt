@@ -23,6 +23,8 @@ and project demonstration
 basic SQL queries:
 
 
+
+
 CREATE TABLE *name_of_table*
 creates a database/table
 
@@ -36,6 +38,9 @@ so a basic create statement would be:
 );"
 
 so you can see that the variable name is declared first, and THEN the data type.
+
+
+
 
 
 SELECT
@@ -91,6 +96,7 @@ to be specific, coding interviews consist mostly of:
 
 
 
+
 DISTINCT:
 shows unique values in a specific column.
 
@@ -122,6 +128,7 @@ FROM ...
 
 
 
+
 a combination of all of these may be:
 
 SELECT CONCAT(name, " belongs to the ", department, " and his/her CGPA is: ", cgpa)
@@ -142,3 +149,113 @@ WHERE *condition*;
 when trying to match a string in the condition, the comparison must also be with a string in double quotes.
 LOGICAL OPERATORS may also be used here (AND/and/&&, OR/or/|, NOT/not/!, and combined conditions too), 
 and also COMPARISON OPERATORS (>, <, =, >=, <=, <>, etc.)
+
+
+if we chain conditions, the order of logical operators comes into play:
+
+the AND operator comes first,
+then the OR operator
+of course, you can always use parentheses to make things easier.
+
+for the NOT operator,
+not only can we negate a comparison,
+we can also negate or reverse a logical operation as well.
+
+for example, we could have written:
+NOT (date < "2000-01-01" OR marks > 80)
+
+and this would be equivalent to:
+date >= "2000-01-01" AND marks <= 80
+
+
+
+
+arithmetic operators can also be used in the where clause.
+
+** in SQL, the format for date is: YYYY-MM-DD (it is not stored as a string, but when using the where operator, we enclose the date in double quotes)
+
+
+
+
+IN:
+when we have to compare an attribute to a list of values, things can be made easier by using the in operator.
+
+SYNTAX EXAMPLE:
+SELECT *
+FROM table_name
+WHERE section IN ("Aquila", "Cygnus", "Auriga")
+
+what does it mean?
+this is the same as writing:
+WHERE section = "Aquila" OR section = "Cygnus" OR section = "Auriga"
+
+since the second one is a bit too long/redundant, the IN operator can be used, making things easier.
+
+we can also chain this with the not operator, like this:
+WHERE section NOT IN ("Aquila", "Cygnus", "Auriga")
+which would show all students not in those sections.
+
+
+
+
+
+BETWEEN:
+whenever we are comparing attributes within a range of values, we can use the between operator, which makes our code smaller, and easier to read.
+
+SYNTAX:
+SELECT *
+FROM table_name
+WHERE marks BETWEEN *lower_bound* AND *upper_bound*
+
+this is the exact same as writing:
+WHERE marks >= lower_bound AND marks <= upper_bound
+
+the BETWEEN operator is inclusive, i.e, it includes the value we put in the bound for comparison.
+
+
+
+
+
+
+
+
+LIKE:
+used to get rows that match a specific string pattern. for example, you wanna get the last name of customers whose last names start with b. then the
+
+SYNTAX EXAMPLE: (would be)
+SELECT *
+FROM table_name
+WHERE last_name LIKE "b%"
+
+the % symbol means any number and combination of characters may follow after the specified string. it is case insensitive.
+here, the value enclosed in the string is case insensitive, and we can match whatever pattern we want.
+
+e.g, if we wanna get the names of people whose names start with brush- and then whatever,
+it would be:
+WHERE last_name LIKE "brush%"
+
+DEPENDING ON THE PLACEMENT OF "%", you can search and match strings in different ways,
+
+e.g, if we wanna get the names of people who have a "b" anywhere in their name, we'd write it like this:
+WHERE last_name LIKE "%b"
+
+another example would be if we wanna get the names of people who have a "y" at the end of their name, and write it like this:
+WHERE last_name LIKE "%y"
+
+WE CAN ALSO SPECIFY THE NUMBER OF CHARACTERS THAT NEED TO FOLLOW, OR PRECEDE, OR BE AROUND THE SEARCHED STRING WE WANT.
+we can do this by using an underscore, "_". the number of underscores specify the number of characters.
+e.g,
+WHERE last_name LIKE "_y"
+means people whose last name only have two characters and end in "y".
+
+so we can combine this in different ways, for example if we want the names of people whose names start with "b", have 5 characters in between, and end with "y",
+then the where clause would look like this:
+WHERE last_name LIKE "b_____y"
+
+so, in summary, we can use the:
+"%" operator within LIKE to specify any number of characters in that place.
+"_" operator to specify a single character in that place.
+
+we can chain two LIKE operators with a logical one, like:
+
+WHERE last_name LIKE "%b" OR last_name LIKE "%y".
