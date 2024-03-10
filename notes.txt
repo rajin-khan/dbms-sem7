@@ -7,19 +7,6 @@
 data for specific columns(attributes) of a table have to be of specific types.
 
 
-project deets:
-
-should have:
-a database
-an authentication method (login/signup)
-a simple website with CRUD operations
-
-will have:
-project proposal (also stating what languages and frameworks are to be used)
-and project demonstration
-
-
-
 basic SQL queries:
 
 
@@ -217,8 +204,6 @@ the BETWEEN operator is inclusive, i.e, it includes the value we put in the boun
 
 
 
-
-
 LIKE:
 used to get rows that match a specific string pattern. for example, you wanna get the last name of customers whose last names start with b. then the
 
@@ -237,7 +222,7 @@ WHERE last_name LIKE "brush%"
 DEPENDING ON THE PLACEMENT OF "%", you can search and match strings in different ways,
 
 e.g, if we wanna get the names of people who have a "b" anywhere in their name, we'd write it like this:
-WHERE last_name LIKE "%b"
+WHERE last_name LIKE "%b%"
 
 another example would be if we wanna get the names of people who have a "y" at the end of their name, and write it like this:
 WHERE last_name LIKE "%y"
@@ -259,3 +244,13 @@ so, in summary, we can use the:
 we can chain two LIKE operators with a logical one, like:
 
 WHERE last_name LIKE "%b" OR last_name LIKE "%y".
+
+
+
+
+
+
+- DAY 3 -
+
+assignments must include: a .txt file with the sql for each task.
+a screenshot of the output.
