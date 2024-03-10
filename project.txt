@@ -1,0 +1,30 @@
+project deets:
+
+should have:
+a database
+an authentication method (login/signup)
+a simple website with CRUD operations
+
+will have:
+project proposal (also stating what languages and frameworks are to be used)
+and project demonstration
+
+the project will focus on:
+
+- a website:
+
+which has:
+
+- a front end [15%]: what is visible immediately upon visiting a website, UI (html/css + bootstrap, or react)
+- a back end [35%]: where logic is implemented, logistics and connection (e.g, which button points where, user authentication) (NodeJS+Express Framework, or PHP+Laravel [not recommended, since backdated])
+- a database [40%]: (must be able to perform CRUD operations through actions on the website, e.g, login/signup page using an html form, which, using the backend, transfers data to the database.)
+              (create would consist of signing up or creating new info, read would be implemented by showing available tickets (maybe), update would be implemented by updating contact info, and delete by deleting old contact info or deleting an account)
+- Project management using Github [5%]
+- Project proposal [5%]
+
+
+Project proposal must include:
+
+- Title
+- Introduction
+- Technologies || Languages
