@@ -28,3 +28,7 @@ Project proposal must include:
 - Title
 - Introduction
 - Technologies || Languages
+
+prepare report and submit it as pdf.
+
+get concept ready.
