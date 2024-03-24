@@ -237,6 +237,10 @@ so we can combine this in different ways, for example if we want the names of pe
 then the where clause would look like this:
 WHERE last_name LIKE "b_____y"
 
+we can use them together too, like:
+WHERE last_name LIKE "_a%"
+meaning there has to be one character before a, but after a, there can be many characters.
+
 so, in summary, we can use the:
 "%" operator within LIKE to specify any number of characters in that place.
 "_" operator to specify a single character in that place.
@@ -263,3 +267,75 @@ a screenshot of the output.
 - DAY 4 -
 
 
+
+BETWEEN clause taught in class.
+
+
+
+different data types exist, like the decimal(s, p) (where s is the number of digits in the number, and 2 is the number of digits after the decimal point)
+
+
+
+IN clause taught in class.
+
+
+
+ORDER BY:
+used to sort data in either ascending or descending order.
+
+SYNTAX:
+SELECT *
+FROM employees
+ORDER BY *attribute_name*;
+
+(by default, it sorts in ascending order, but you could explicitly write ASC if you r e a l l y wanted to)
+
+but for descending, you need to write:
+SELECT *
+FROM table_name
+ORDER BY *attribute_name* DESC;
+
+you can chain attributes when sorting too, for example:
+SELECT *
+FROM table_name
+ORDER BY *attribute_name* AND *attribute_name2* DESC; (the order of the mentioned attributes matter)
+
+
+
+LIKE clause taught in class.
+
+
+
+NOT operator taught to be used in class. told that it can be used everywhere.
+
+
+
+EQUIJOINS: HOW TO JOIN TWO/THREE TABLES (that are related with a foreign key or sth, obv)
+
+for example, for two existing tables, dept, and employee:
+let's say employees table has a dept id
+and dept table has a corresponding dept id and dept name too.
+
+what if we just want to show the info from employees with the dept name?
+
+we have to select both tables first, so:
+SELECT *
+FROM employees, dept;
+
+to make things easier, we can use this shorthand:
+SELECT *
+FROM employees AS e, dept AS d;
+
+we compare the dept id from employee table with the dept id from dept table, and if they match, we show the dept name of that id.
+
+as we used the shorthand, we can compare like this:
+
+SELECT *
+FROM employees AS e, dept AS d
+WHERE e.deptid = d.deptid;
+
+now if you just wanna show the dept_name, then you have to separately select the attributes you want, like this:
+
+SELECT e.firstname, e.lastname, e.deptid, d.deptname
+FROM employees AS e, dept AS d
+WHERE e.deptid = d.deptid;
