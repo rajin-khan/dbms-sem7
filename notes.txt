@@ -254,3 +254,12 @@ WHERE last_name LIKE "%b" OR last_name LIKE "%y".
 
 assignments must include: a .txt file with the sql for each task.
 a screenshot of the output.
+
+
+
+
+
+
+- DAY 4 -
+
+
