@@ -339,3 +339,125 @@ now if you just wanna show the dept_name, then you have to separately select the
 SELECT e.firstname, e.lastname, e.deptid, d.deptname
 FROM employees AS e, dept AS d
 WHERE e.deptid = d.deptid;
+
+
+
+- DAY 5 -
+
+
+
+the JOIN clause:
+
+for example, if you have two tables, employee, and department
+if you use JOIN, you can combine the table
+
+different types of join:
+
+LEFT JOIN:
+all the data from the LEFT table, with some common values from the RIGHT table. (like E for a set that has E and D overlapping/intersecting)
+basically won't show null values from the right side.
+
+RIGHT JOIN:
+
+All the data from the RIGHT table, with some common values from the LEFT table. (like D for a set that has E and D overlapping/intersecting)
+so this won't show null values from the left side.
+
+
+
+SYNTAX (NORMAL JOIN):
+
+SELECT *
+FROM employees AS e JOIN departments AS d
+ON (e.deptid = d.deptid)
+
+we use ON instead of the WHERE clause when we use join.
+keep in mind that the table declared FIRST will be considered the left table (employees), and the latter will be considered the right one.
+
+so this result will only show the matching columns (as specified in ON). it will NOT SHOW the null values, because nothing exists there.
+
+
+
+SYNTAX (LEFT JOIN):
+
+same as JOIN, like this:
+
+SELECT *
+FROM employees AS e LEFT JOIN departments AS d
+ON (e.deptid = d.deptid)
+
+so, in this case, it will display all the values in the left table, along with the matching values in the right table.
+what this implies is that even if the left table (employees) has null, it will show it, but for the right table, it will only show the matching
+values, not the null values.
+
+
+
+SYNTAX (RIGHT JOIN):
+
+SELECT *
+FROM employees AS e RIGHT JOIN departments AS d
+ON (e.deptid = d.deptid)
+
+so, in this case, it will display all the values in the right table, along with the matching values in the left table.
+what this implies is that even if the right table (departments) has null, it will show it, but for the left table, it will only show the matching
+values, not the null values.
+
+
+if you wanted to chain conditions, for example,
+show the info of employees from both tables who belong to the finance dept, you'd write it like this:
+
+
+SELECT *
+FROM employees AS e RIGHT JOIN departments AS d
+ON (e.deptid = d.deptid) AND d.deptname = 'Finance'
+
+
+
+GROUP FUNCTIONS IN SQL:
+
+AVG, COUNT, MAX, MIN, SUM, STDDEV, VARIANCE
+
+SYNTAX:
+
+for example, if you wanted to use SUM, you'd write it like this:
+
+SELECT SUM(salary)
+FROM employees
+
+to show the SUM of all the salaries (values under that attribute)
+
+all functions follow the same format.
+so an AVERAGE of all salaries would be:
+
+SELECT AVG(salary)
+FROM employees
+
+the COUNT function works like this:
+
+SELECT COUNT(employeeid)
+FROM employees
+
+this will show you the number of elements/instances of that attribute.
+
+if you want to count the distinct values in a column/attribute, write it like this:
+
+SELECT COUNT(distinct departmentid)
+FROM employees
+
+so if you wanted to display the number of employees in the finance department, you could do it like this:
+
+SELECT COUNT(empid) AS "Number of employees" (the AS part here is just changing the display column name, don't really need it)
+FROM employees AS e JOIN departments AS d
+ON e.deptid = d.deptid AND d.deptname = 'Finance'
+
+or, without join, like this:
+
+SELECT COUNT(empid) AS "Number of employees" (the AS part here is just changing the display column name, don't really need it)
+FROM employees AS e, departments AS d
+WHERE e.deptid = d.deptid AND d.deptname = 'Finance'
+
+you can also output multiple functions, like this:
+
+SELECT COUNT(employeeid), MAX(salary), AVG(salary)
+FROM employees
+
+you get it.
