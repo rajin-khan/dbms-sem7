@@ -307,7 +307,6 @@ LIKE clause taught in class.
 NOT operator taught to be used in class. told that it can be used everywhere.
 
 
-
 EQUIJOINS: HOW TO JOIN TWO/THREE TABLES (that are related with a foreign key or sth, obv)
 
 for example, for two existing tables, dept, and employee:
