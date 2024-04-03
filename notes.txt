@@ -458,3 +458,7 @@ SELECT COUNT(employeeid), MAX(salary), AVG(salary)
 FROM employees
 
 you get it.
+
+
+- DAY 6 -
+
