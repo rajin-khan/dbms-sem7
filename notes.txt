@@ -156,7 +156,6 @@ date >= "2000-01-01" AND marks <= 80
 
 
 
-
 arithmetic operators can also be used in the where clause.
 
 ** in SQL, the format for date is: YYYY-MM-DD (it is not stored as a string, but when using the where operator, we enclose the date in double quotes)
@@ -260,10 +259,6 @@ assignments must include: a .txt file with the sql for each task.
 a screenshot of the output.
 
 
-
-
-
-
 - DAY 4 -
 
 
@@ -305,6 +300,7 @@ LIKE clause taught in class.
 
 
 NOT operator taught to be used in class. told that it can be used everywhere.
+
 
 
 EQUIJOINS: HOW TO JOIN TWO/THREE TABLES (that are related with a foreign key or sth, obv)
@@ -361,6 +357,7 @@ so this won't show null values from the left side.
 
 
 
+
 SYNTAX (NORMAL JOIN):
 
 SELECT *
@@ -371,6 +368,7 @@ we use ON instead of the WHERE clause when we use join.
 keep in mind that the table declared FIRST will be considered the left table (employees), and the latter will be considered the right one.
 
 so this result will only show the matching columns (as specified in ON). it will NOT SHOW the null values, because nothing exists there.
+
 
 
 
@@ -385,6 +383,7 @@ ON (e.deptid = d.deptid)
 so, in this case, it will display all the values in the left table, along with the matching values in the right table.
 what this implies is that even if the left table (employees) has null, it will show it, but for the right table, it will only show the matching
 values, not the null values.
+
 
 
 
@@ -406,6 +405,7 @@ show the info of employees from both tables who belong to the finance dept, you'
 SELECT *
 FROM employees AS e RIGHT JOIN departments AS d
 ON (e.deptid = d.deptid) AND d.deptname = 'Finance'
+
 
 
 
@@ -461,6 +461,43 @@ you get it.
 
 
 - DAY 6 -
+
+GROUP BY QUERY: groups the same values together for a given attribute and displays them consequentually.
+
+SYNTAX:
+
+SELECT *
+FROM employees
+GROUP BY deptid
+
+
+SUBQUERIES: whenever a query is nested inside another query.
+
+SYNTAX EXAMPLE:
+
+SELECT *
+FROM employees
+WHERE empid NOT IN (SELECT *
+                    FROM employees AS e LEFT JOIN departments AS d
+                    ON (e.deptid = d.deptid) AND d.deptname != 'Finance')
+
+another example,
+
+SELECT AVG(salary)
+FROM employees
+
+this would return just the average salary
+
+so in a subquery, where we want to show all the employees whose salary is greater than avergae, we would write:
+
+SELECT *
+FROM employees
+WHERE salary > (SELECT AVG(salary)
+                FROM employees)
+
+
+
+
 
 REGULAR EXPRESSION (USED INSTEAD OF LIKE)
 
