@@ -497,6 +497,40 @@ WHERE salary > (SELECT AVG(salary)
 
 
 
+- DAY 7 -
+
+ANY 
+ALL
+
+being used with subqueries,
+
+so, (ANY)
+
+SELECT *
+FROM employees
+WHERE salary > ANY (SELECT salary
+                    FROM employees AS e JOIN departments AS d
+                    ON (e.deptid = d.deptid) AND d.deptname = 'Finance')
+
+would show you all the salaries that are greater than any of the salaries in the finance dept.
+
+and (ALL)
+
+SELECT *
+FROM employees
+WHERE salary > ALL (SELECT salary
+                    FROM employees AS e JOIN departments AS d
+                    ON (e.deptid = d.deptid) AND d.deptname = 'Finance')
+
+would show you all the salaries that are greater than all the salaries in the finance dept.
+
+                
+UPDATE QUERY
+
+UPDATE tablename
+SET attribute_name
+WHERE attribute = certain condition
+
 
 
 REGULAR EXPRESSION (USED INSTEAD OF LIKE)
