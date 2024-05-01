@@ -134,7 +134,7 @@ FROM table_name
 WHERE *condition*;
 
 when trying to match a string in the condition, the comparison must also be with a string in double quotes.
-LOGICAL OPERATORS may also be used here (AND/and/&&, OR/or/|, NOT/not/!, and combined conditions too), 
+LOGICAL OPERATORS may also be used here (AND/and/&&, OR/or/||, NOT/not/!, and combined conditions too), 
 and also COMPARISON OPERATORS (>, <, =, >=, <=, <>, etc.)
 
 
@@ -437,7 +437,7 @@ this will show you the number of elements/instances of that attribute.
 
 if you want to count the distinct values in a column/attribute, write it like this:
 
-SELECT COUNT(distinct departmentid)
+SELECT COUNT(DISTINCT departmentid)
 FROM employees
 
 so if you wanted to display the number of employees in the finance department, you could do it like this:
