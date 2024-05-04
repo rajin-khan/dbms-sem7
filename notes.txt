@@ -118,7 +118,7 @@ FROM ...
 
 a combination of all of these may be:
 
-SELECT CONCAT(name, " belongs to the ", department, " and his/her CGPA is: ", cgpa)
+SELECT CONCAT(name, " belongs to the ", department, "department and his/her CGPA is: ", cgpa)
 AS "Student Info"
 FROM students;
 
