@@ -361,8 +361,8 @@ so this won't show null values from the left side.
 SYNTAX (NORMAL JOIN):
 
 SELECT *
-FROM employees AS e JOIN departments AS d
-ON (e.deptid = d.deptid)
+FROM employees AS e 
+JOIN departments AS d ON (e.deptid = d.deptid)
 
 we use ON instead of the WHERE clause when we use join.
 keep in mind that the table declared FIRST will be considered the left table (employees), and the latter will be considered the right one.
@@ -377,8 +377,8 @@ SYNTAX (LEFT JOIN):
 same as JOIN, like this:
 
 SELECT *
-FROM employees AS e LEFT JOIN departments AS d
-ON (e.deptid = d.deptid)
+FROM employees AS e 
+LEFT JOIN departments AS d ON (e.deptid = d.deptid)
 
 so, in this case, it will display all the values in the left table, along with the matching values in the right table.
 what this implies is that even if the left table (employees) has null, it will show it, but for the right table, it will only show the matching
@@ -390,8 +390,8 @@ values, not the null values.
 SYNTAX (RIGHT JOIN):
 
 SELECT *
-FROM employees AS e RIGHT JOIN departments AS d
-ON (e.deptid = d.deptid)
+FROM employees AS e 
+RIGHT JOIN departments AS d ON (e.deptid = d.deptid)
 
 so, in this case, it will display all the values in the right table, along with the matching values in the left table.
 what this implies is that even if the right table (departments) has null, it will show it, but for the left table, it will only show the matching
@@ -403,15 +403,26 @@ show the info of employees from both tables who belong to the finance dept, you'
 
 
 SELECT *
-FROM employees AS e RIGHT JOIN departments AS d
-ON (e.deptid = d.deptid) AND d.deptname = 'Finance'
+FROM employees AS e 
+RIGHT JOIN departments AS d ON (e.deptid = d.deptid) 
+                            AND d.deptname = 'Finance'
 
 
+keep in mind that you can join three or four or as many table as you needed to, like this:
+
+SELECT *
+FROM employees AS e 
+JOIN departments AS d ON (e.deptid = d.deptid)
+JOIN projects AS p ON (d.projectid = p.projectid)
+JOIN solutions AS s on (p.solid = s.solid);
+... (so on and so forth)
 
 
-GROUP FUNCTIONS IN SQL:
+AGGREGATE FUNCTIONS IN SQL: (CANNOT BE USED IN THE WHERE CLAUSE, BUT CAN BE USED IN THE HAVING CLAUSE, EXPLAINED LATER)
 
 AVG, COUNT, MAX, MIN, SUM, STDDEV, VARIANCE
+
+ALL aggregate functions ignore null values EXCEPT for the COUNT function.
 
 SYNTAX:
 
@@ -443,8 +454,9 @@ FROM employees
 so if you wanted to display the number of employees in the finance department, you could do it like this:
 
 SELECT COUNT(empid) AS "Number of employees" //(the AS part here is just changing the display column name, don't really need it)
-FROM employees AS e JOIN departments AS d
-ON e.deptid = d.deptid AND d.deptname = 'Finance'
+FROM employees AS e 
+JOIN departments AS d ON e.deptid = d.deptid 
+                      AND d.deptname = 'Finance'
 
 or, without join, like this:
 
@@ -469,6 +481,15 @@ SYNTAX:
 SELECT *
 FROM employees
 GROUP BY deptid
+
+conditions that could be added with the WHERE clause on single attributes can be added to grouped attributes using the HAVING clause.
+
+and example would be:
+
+SELECT *
+FROM employees
+GROUP BY salary
+HAVING salary > 50000;
 
 
 SUBQUERIES: whenever a query is nested inside another query.
