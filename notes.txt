@@ -460,7 +460,7 @@ JOIN departments AS d ON e.deptid = d.deptid
 
 or, without join, like this:
 
-SELECT COUNT(empid) AS "Number of employees" (the AS part here is just changing the display column name, don't really need it)
+SELECT COUNT(empid) AS "Number of employees" (the AS part "../SEM7_DBMS_SQL"here is just changing the display column name, don't really need it)
 FROM employees AS e, departments AS d
 WHERE e.deptid = d.deptid AND d.deptname = 'Finance'
 
